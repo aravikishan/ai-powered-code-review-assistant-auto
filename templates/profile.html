@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/submit">Submit Code</a>
+            <a href="/reviews">Review Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/stats">Statistics</a>
+        </nav>
+    </header>
+    <main class="bg-light">
+        <div class="container mt-5">
+            <h1 class="text-primary">User Profile</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user[1] }}</h5>
+                    <p class="card-text">Email: {{ user[2] }}</p>
+                </div>
+            </div>
+            <h2 class="mt-4">Submission History</h2>
+            <ul class="list-group">
+                {% for submission in submissions %}
+                <li class="list-group-item">
+                    Submission ID: {{ submission[0] }} - Code: <pre>{{ submission[2] }}</pre>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 AI-Powered Code Review Assistant</p>
+        </div>
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
